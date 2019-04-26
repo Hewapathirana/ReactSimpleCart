@@ -7,19 +7,12 @@ class App extends Component {
     return (
 <div className="App">
 
-    <h1>Hi' Iam React</h1>
-          <Person/>
-          <h1></h1>
+<h1>Das</h1>
+
 </div>
 
     );
   }
 }
-
-
-
-
-
-
 
 export default App;
