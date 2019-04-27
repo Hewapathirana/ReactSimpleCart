@@ -1,10 +1,12 @@
+/* eslint no-undef: 0 */ // --> OFF
 import React, { Component } from 'react';
 import App from "../App";
 
 
 class Counter extends Component {
+
     state = {
-        count: 0,
+        value: this.props.value,
         tags: ['tag1','tag2','tag3']
     };
 
@@ -16,8 +18,8 @@ class Counter extends Component {
       }
 
 
-      clickHandler =() =>{
-          this.setState({count: this.state.count +1})
+      clickHandler = () =>{
+          this.setState({value: this.state.value +1})
       };
 
 
@@ -26,11 +28,11 @@ class Counter extends Component {
 
         return (
             <div>
-
+                {this.props.children}
             <span   className= {this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button  onClick={this.clickHandler} className="btn btn-secondary btn-sm  ">Insert </button>
+            <button  onClick={() => this.clickHandler()} className="btn btn-secondary btn-sm  ">Insert </button>
                 {this.state.tags.length === 0 && " Please create a New Tag"}
-            {this.renderTags()}
+                {/*{this.renderTags()}*/}
         </div>
     );
     }
@@ -38,13 +40,13 @@ class Counter extends Component {
 
     formatCount(){
 
-        return this.state.count === 0 ? 'Zero' : this.state.count;
+        return this.state.value === 0 ? 'Zero' : this.state.value;
     }
 
 
     getBadgeClasses(){
         let classes = "badge m-2 badge-";
-        classes +=(this.state.count === 0) ? "warning" : "primary";
+        classes +=(this.state.value === 0) ? "warning" : "primary";
         return classes
     }
 }
