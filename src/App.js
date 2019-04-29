@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from "./Person/Person";
+import NavBar from "./components/navbar";
+import Counters from "./components/counters";
 
 class App extends Component {
   render() {
     return (
 <div className="App">
 
-<h1>Das</h1>
+ <NavBar/>
+ <main className="container">
+     <Counters/>
+ </main>
 
 </div>
 
